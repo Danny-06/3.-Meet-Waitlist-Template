@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+
+:root {
+  --app-bg:   hsl(195, 97%, 13%);
+  --app-text: hsl(198, 20%, 70%);
+
+  --color-primary: hsl(166, 91%, 58%);
+
+  --font-primary: Inter;
+  --font-secondary: Sen; 
+}
+
+
+img {
+  -webkit-user-drag: none;
+}
+
+
+:root {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  font-family: var(--font-primary);
+}
+
+#app {
+  display: grid;
+  grid-template: 100% / 100%;
+  grid-template-areas: "overlay";
+}
+
+#app > #app-content,
+#app > .avatars-background {
+  grid-area: overlay;
+}
+
+#app > .avatars-background {
+  display: none;
+}
+
+
+#app-content {
+  display: grid;
+  grid-template-columns: minmax(auto, 1100px);
+  grid-template-rows: 52px 1fr 120px;
+  grid-template-areas:
+  "nav   "
+  "main  "
+  "footer"
+  ;
+  justify-content: center;
+
+  padding-inline: 3rem;
+
+  font-size: 1.3rem;
+}
+
+@media (max-width: 35em) {
+  #app-content {
+    padding-inline: 2rem;
+  }
+}
+
+#app-content > .navbar-block {
+  grid-area: nav;
+}
+
+#app-content > .main-block {
+  grid-area: main;
+}
+
+#app-content > .footer-block {
+  grid-area: footer;
+}
+
+
+.navbar-block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar-block > * {
+  user-select: none;
+}
+
+.main-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 1.5rem;
+}
+
+.primary-heading {
+  color: var(--color-primary);
+
+  font-size: clamp(2rem, 12vw, 8rem);
+  font-family: var(--font-secondary);
+  line-height: 1;
+}
+
+.main-block > .description {
+  max-width: 21em;
+}
+
+.notify-link {
+  display: block;
+
+  padding: 1em;
+
+  border-radius: 0.2em;
+  background-color: var(--color-primary);
+  color: var(--app-bg);
+
+  font-weight: bold;
+
+  user-select: none;
+}
+
+.footer-block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@media (max-width: 47em) {
+  .footer-block {
+    align-items: flex-end;
+  }
+}
+
+.link-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  column-gap: 0.7em;
+}
+
+.link-item > * {
+  user-select: none;
+}
+
+.link-item > .icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+}
