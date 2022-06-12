@@ -55,6 +55,9 @@ img {
   margin: 1rem;
 
   transform: scale(0.8);
+  
+  transition-property: top, left, right;
+  transition-duration: 0.3s;
 }
 
 .avatars-background > .avatar.-a1 {
@@ -73,7 +76,7 @@ img {
 }
 
 .avatars-background > .avatar.-a4 {
-  top: 440px;
+  bottom: 0px;
   right: 0px;
 }
 
@@ -83,14 +86,65 @@ img {
 }
 
 .avatars-background > .avatar.-a6 {
-  top: 285px;
+  bottom: 245px;
   right: 230px;
 }
 
 @media (max-width: 65em) {
+  .avatars-background > .avatar.-a1 {
+    top: 130px;
+    right: -5px;
+  }
+
+  .avatars-background > .avatar.-a2 {
+    top: -30px;
+    right: 25px;
+  }
+
   .avatars-background > .avatar.-a3 {
     top: 35px;
     left: 50px;
+  }
+
+  .avatars-background > .avatar.-a5 {
+    top: 65px;
+    right: 155px;
+  }
+
+  .avatars-background > .avatar.-a6 {
+    bottom: 260px;
+    right: 105px;
+  }
+}
+
+@media (max-width: 45em) {
+  .avatars-background > .avatar.-a6 {
+    bottom: 260px;
+    right: 5px;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .avatars-background > .avatar.-a1,
+  .avatars-background > .avatar.-a4,
+  .avatars-background > .avatar.-a5 {
+    display: none;
+  }
+
+  .avatars-background > .avatar.-a2 {
+    top: 30px;
+    right: -20px;
+  }
+
+  .avatars-background > .avatar.-a3 {
+    top: 40px;
+    left: 0px;
+  }
+
+  .avatars-background > .avatar.-a6 {
+    bottom: 60px;
+    right: 15px;
+    transform: scale(1.3);
   }
 }
 
@@ -98,7 +152,7 @@ img {
 #app-content {
   display: grid;
   grid-template-columns: min-content;
-  grid-template-rows: 52px minmax(25rem, 1fr) 100px;
+  grid-template-rows: 52px minmax(25rem, 1fr) 70px;
   grid-template-areas:
   "nav   "
   "main  "
@@ -113,7 +167,7 @@ img {
 
 @media (max-width: 65em) {
   #app-content {
-    padding-block: 0.1rem;
+    padding-block: 0.5rem;
   }
 }
 
@@ -185,6 +239,8 @@ img {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+
+  padding-bottom: 0.5rem;
 }
 
 @media (max-width: 47em) {
