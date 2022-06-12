@@ -23,6 +23,7 @@ img {
   font-family: var(--font-primary);
 }
 
+
 #app {
   display: grid;
   grid-template: 100% / 100%;
@@ -34,15 +35,70 @@ img {
   grid-area: overlay;
 }
 
+#app > #app-content {
+  z-index: 10;
+}
+
+
 #app > .avatars-background {
-  display: none;
+  max-width: 100%;
+  width: calc(8rem / 1.77777777 * 12.2);
+  justify-self: center;
+}
+
+.avatars-background {
+  position: relative;
+}
+
+.avatars-background > .avatar {
+  position: absolute;
+  margin: 1rem;
+
+  transform: scale(0.8);
+}
+
+.avatars-background > .avatar.-a1 {
+  top: 280px;
+  right: -105px;
+}
+
+.avatars-background > .avatar.-a2 {
+  top: 20px;
+  right: -95px;
+}
+
+.avatars-background > .avatar.-a3 {
+  top: 70px;
+  left: -105px;
+}
+
+.avatars-background > .avatar.-a4 {
+  top: 440px;
+  right: 0px;
+}
+
+.avatars-background > .avatar.-a5 {
+  top: 60px;
+  right: 85px;
+}
+
+.avatars-background > .avatar.-a6 {
+  top: 285px;
+  right: 230px;
+}
+
+@media (max-width: 65em) {
+  .avatars-background > .avatar.-a3 {
+    top: 35px;
+    left: 50px;
+  }
 }
 
 
 #app-content {
   display: grid;
-  grid-template-columns: minmax(auto, 1100px);
-  grid-template-rows: 52px 1fr 120px;
+  grid-template-columns: min-content;
+  grid-template-rows: 52px minmax(25rem, 1fr) 100px;
   grid-template-areas:
   "nav   "
   "main  "
@@ -55,11 +111,18 @@ img {
   font-size: 1.3rem;
 }
 
+@media (max-width: 65em) {
+  #app-content {
+    padding-block: 0.1rem;
+  }
+}
+
 @media (max-width: 35em) {
   #app-content {
     padding-inline: 2rem;
   }
 }
+
 
 #app-content > .navbar-block {
   grid-area: nav;
